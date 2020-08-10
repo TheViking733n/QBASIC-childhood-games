@@ -1,0 +1,1 @@
+QB_DOS.exe -resetmapper

@@ -1,0 +1,131 @@
+REM	Creator:	ANANT PRAKASH SINGH
+REM	Year:		2015
+REM	Environment:	QBASIC
+
+CLS
+SCREEN 7
+t = 25000
+COLOR 4
+PRINT "              INSTRUCTION": PRINT ""
+COLOR 2
+PRINT "   HOW TO PLAY"
+LOCATE 3, 26
+COLOR 1
+PRINT "OBSTRACLE": PRINT ""
+COLOR 2
+LINE (170, 20)-(170, 135), 4
+LINE (0, 25)-(320, 25), 4
+PRINT "4  : GO LEFT": PRINT ""
+PRINT "6  : GO RIGHT": PRINT ""
+PRINT "8  : JUMP": PRINT ""
+PRINT "84  : JUMP & GO LEFT": PRINT ""
+PRINT "86  : JUMP & GO RIGHT": PRINT ""
+PRINT "7 : JUMP 45' LEFT": PRINT ""
+PRINT "9 : JUMP 45' RIGHT": PRINT ""
+LOCATE 5, 35
+COLOR 1
+PRINT "LAVA"
+FOR a = 185 TO 235 STEP 10
+CIRCLE (a, 35), 5, 14
+PAINT (a, 35), 14
+NEXT a
+LOCATE 7, 25
+PRINT "(DANGEROUS)"
+LINE (180, 70)-(190, 80), 1, BF
+LOCATE 10, 26
+PRINT "BLOXY"
+LINE (180, 89)-(220, 94), 10, BF
+LOCATE 12, 30
+PRINT "GRASS"
+LINE (180, 110)-(220, 120), 12, BF
+LOCATE 15, 30
+PRINT "LAND"
+LOCATE 21
+COLOR 3
+INPUT "      WHEN READY PRESS ENTER ", z
+PRINT ""
+COLOR 2
+INPUT "   DO YOU WANT TO DO PRACTISE   ", pra$
+LINE (0, 0)-(320, 200), 0, BF
+pra$ = UCASE$(pra$)
+IF pra$ <> "Y" THEN GOTO level1
+
+REM              PRACTISE
+practise:
+COLOR 11
+LOCATE 1, 10
+PRINT "  PRACTISE     ENTER 0 TO EXIT PRACTISE"
+LINE (0, 30)-(320, 160), 11, BF
+LINE (0, 160)-(320, 165), 10, BF
+LINE (0, 165)-(320, 180), 2, BF
+LINE (0, 180)-(320, 200), 6, BF
+l1 = 150: l2 = 150: l3 = 160: l4 = 160
+LINE (l1, l2)-(l3, l4), 1, BF
+prast:
+LOCATE 3
+PRINT "                                       "
+LOCATE 3
+COLOR 4
+INPUT "YOUR MOVE ", m
+SELECT CASE m
+       CASE 0
+       GOTO level1
+
+       CASE 4, 6
+       FOR a = 1 TO 10
+           FOR b = 1 TO t: NEXT b
+       LINE (l1, l2)-(l3, l4), 11, BF
+       IF m = 4 THEN
+       IF POINT(l1 - 1, l2) = 11 THEN
+       l1 = l1 - 1
+       l3 = l3 - 1
+       END IF
+       ELSE
+       IF POINT(l3 + 1, l2) = 11 THEN
+       l1 = l1 + 1
+       l3 = l3 + 1
+       END IF
+       END IF
+       LINE (l1, l2)-(l3, l4), 1, BF
+       NEXT a
+       GOTO prast
+       
+
+       CASE ELSE
+       GOTO prast
+END SELECT
+
+REM level1
+level1:
+LINE (0, 0)-(320, 200), 0, BF
+LOCATE 1, 25
+COLOR 4
+PRINT "LAND WORLD"
+LOCATE 1, 1
+COLOR 1
+PRINT "LEVEL:     LIFE:"
+LOCATE 1, 7
+COLOR 2
+PRINT "1"
+LOCATE 1, 17
+PRINT "3"
+LINE (0, 20)-(320, 160), 11, BF
+LINE (0, 160)-(320, 165), 10, BF
+LINE (0, 165)-(320, 180), 2, BF
+LINE (0, 180)-(320, 200), 6, BF
+LINE (20, 130)-(60, 140), 12, BF
+LINE (70, 100)-(100, 110), 12, BF
+LINE (83, 110)-(86, 160), 6, BF
+LINE (160, 140)-(200, 150), 12, BF
+LINE (220, 140)-(230, 150), 12, BF
+LINE (250, 140)-(260, 150), 12, BF
+LINE (300, 130)-(320, 160), 6, BF
+CIRCLE (315, 145), 1, 0
+PSET (315, 145), 0
+FOR a = 95 TO 285 STEP 10
+CIRCLE (a, 155), 5, 14
+PAINT (a, 155), 14
+NEXT a
+l1 = 0: l2 = 150: l3 = 10: l4 = 160
+LINE (l1, l2)-(l3, l4), 1, BF
+

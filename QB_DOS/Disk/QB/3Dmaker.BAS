@@ -1,0 +1,19 @@
+REM	Creator:	ANANT PRAKASH SINGH
+REM	Year:		2015
+REM	Environment:	QBASIC
+
+CLS
+SCREEN 12
+COLOR 2
+INPUT "THICKNESS=", t
+INPUT "YOUR NAME ", n$
+FOR a = 1 TO 640
+FOR b = 1 TO 480
+IF POINT(a, b) <> 0 THEN
+FOR c = 1 TO t
+IF POINT(a, b) <> 11 AND POINT(a + c, b + c) = 0 THEN PSET (a + c, b + c), 11
+NEXT
+END IF
+NEXT
+NEXT
+
